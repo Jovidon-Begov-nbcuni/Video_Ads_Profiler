@@ -1,0 +1,317 @@
+{
+  "originatingSystem" : {
+    "string" : "PAYMENTS_MANAGER"
+  },
+  "activityTimestamp" : {
+    "string" : "2019-12-20T12:19:10.64-05:00"
+  },
+  "activityType" : {
+    "string" : "PURCHASE_SUCCESS"
+  },
+  "provider" : {
+    "string" : "NBCU"
+  },
+  "providerTerritory" : {
+    "string" : "US"
+  },
+  "householdId" : {
+    "string" : "12345678-90ab-cdef-ghij-klmnopqrstuv"
+  },
+  "proposition" : {
+    "string" : "NBCUOTT"
+  },
+  "requestId" : {
+    "string" : "eefa8e17-26f8-4b93-8332-c01196c57ce6"
+  },
+  "deviceType" : {
+    "string" : "COMPUTER"
+  },
+  "devicePlatform" : {
+    "string" : "PC"
+  },
+  "orderId" : {
+    "string" : "d6b08ec3-7351-477b-9ae3-02a20ee2d4d3"
+  },
+  "purchaseType" : {
+    "string" : "NEW_CUSTOMER_PURCHASE"
+  },
+  "partnerId" : null,
+  "segmentType" : null,
+  "PaymentProtectionAccept" : null,
+  "deviceId" : null,
+  "userId" : null,
+  "vouchers" : {
+    "array" : [ ]
+  },
+  "products" : {
+    "array" : [ {
+      "id" : {
+        "string" : "C_007611"
+      },
+      "staticId" : {
+        "string" : "D2C_SUBSCRIPTION_MONTH"
+      },
+      "quantity" : {
+        "int" : 1
+      },
+      "category" : {
+        "string" : "D2C"
+      },
+      "includedBy" : null,
+      "relevantContext" : {
+        "duration" : {
+          "string" : "P1M"
+        },
+        "isIncluded" : {
+          "string" : "False"
+        },
+        "nextRenewalDueDate" : null,
+        "offers" : null,
+        "paymentType" : {
+          "string" : "PAYMENT"
+        },
+        "startDate" : null,
+        "endDate" : null,
+        "staticId" : {
+          "string" : "D2C_SUBSCRIPTION_MONTH"
+        },
+        "subscriptionType" : {
+          "string" : "MONTHLY"
+        }
+      }
+    } ]
+  },
+  "payment" : {
+    "payment" : {
+      "paymentTransactionId" : {
+        "string" : "1315768623480929"
+      },
+      "paymentProvider" : {
+        "string" : "BC"
+      },
+      "amountAuthorised" : {
+        "string" : "0.15"
+      },
+      "currency" : {
+        "string" : "USD"
+      },
+      "method" : {
+        "string" : "visasuperpremiumdebit"
+      },
+      "customerReference" : {
+        "string" : "29239c6093ff022dc67e3909041ee266d2b227be"
+      },
+      "lastDigits" : {
+        "string" : "****"
+      },
+      "expiryDate" : {
+        "string" : "11/2024"
+      },
+      "alias" : {
+        "string" : "P105336416556111"
+      },
+      "issuerCountry" : null,
+      "paymentContractType" : {
+        "string" : "RECURRING"
+      },
+      "signupEmail" : null,
+      "paymentProtectionResult" : null,
+      "amountAuthorised_Currency" : {
+        "double" : 0.15
+      }
+    }
+  },
+  "delivery" : null,
+  "offers" : {
+    "array" : [ ]
+  },
+  "subscriptions" : {
+    "subscriptions" : {
+      "added" : {
+        "array" : [ {
+          "id" : {
+            "string" : "53af76c8-310b-45e6-9ee8-71b13164a05b"
+          },
+          "productId" : {
+            "string" : "C_007611"
+          },
+          "productStaticId" : {
+            "string" : "D2C_SUBSCRIPTION_MONTH"
+          },
+          "context" : {
+            "duration" : {
+              "string" : "P1M"
+            },
+            "isIncluded" : {
+              "string" : "False"
+            },
+            "offers" : null,
+            "paymentType" : {
+              "string" : "PAYMENT"
+            },
+            "staticId" : {
+              "string" : "D2C_SUBSCRIPTION_MONTH"
+            },
+            "subscriptionType" : {
+              "string" : "MONTHLY"
+            }
+          }
+        } ]
+      },
+      "updated" : {
+        "array" : [ ]
+      }
+    }
+  },
+  "entitlements" : {
+    "array" : [ {
+      "id" : {
+        "string" : "652067a1-be16-43ae-9487-47db27c5134f"
+      },
+      "name" : {
+        "string" : "D2C_BASIC"
+      },
+      "productId" : {
+        "string" : "C_007611"
+      },
+      "productStaticId" : {
+        "string" : "D2C_SUBSCRIPTION_MONTH"
+      },
+      "state" : {
+        "string" : "ACTIVATED"
+      },
+      "billingType" : {
+        "string" : "Recurring"
+      }
+    } ]
+  },
+  "hardware" : {
+    "array" : [ ]
+  },
+  "chargeTotals" : {
+    "chargeTotals" : {
+      "nonRecurring" : {
+        "fullAmount" : {
+          "string" : "0.00"
+        },
+        "pointOfSaleAmount" : {
+          "string" : "0.00"
+        },
+        "fullAmount_Currency" : {
+          "double" : 0.0
+        },
+        "pointOfSaleAmount_Currency" : {
+          "double" : 0.0
+        }
+      },
+      "recurring" : {
+        "nextRenewalAmount" : {
+          "string" : "0.15"
+        },
+        "fullAmount" : {
+          "string" : "0.15"
+        },
+        "pointOfSaleAmount" : {
+          "string" : "0.15"
+        },
+        "fullAmount_Currency" : {
+          "double" : 0.15
+        },
+        "pointOfSaleAmount_Currency" : {
+          "double" : 0.15
+        }
+      },
+      "total" : {
+        "nextRenewalAmount" : {
+          "string" : "0.15"
+        },
+        "fullAmount" : {
+          "string" : "0.15"
+        },
+        "pointOfSaleAmount" : {
+          "string" : "0.15"
+        },
+        "nextRenewalAmount_Currency" : {
+          "double" : 0.15
+        },
+        "fullAmount_Currency" : {
+          "double" : 0.15
+        },
+        "pointOfSaleAmount_Currency" : {
+          "double" : 0.15
+        }
+      }
+    }
+  },
+  "charges" : {
+    "array" : [ {
+      "pointOfSaleAmount" : {
+        "string" : "0.15"
+      },
+      "amount" : {
+        "string" : "0.15"
+      },
+      "appliedToBusinessId" : {
+        "string" : "C_007611"
+      },
+      "appliedToStaticId" : {
+        "string" : "D2C_SUBSCRIPTION_MONTH"
+      },
+      "billingType" : {
+        "string" : "Recurring"
+      },
+      "fullAmount" : {
+        "string" : "0.15"
+      },
+      "rate" : {
+        "string" : "0.15"
+      },
+      "nextRenewalAmount" : {
+        "string" : "0.15"
+      },
+      "staticId" : {
+        "string" : "D2C_PRODUCT_RECURRING_CHARGE"
+      },
+      "savingAmount" : {
+        "string" : "0.00"
+      },
+      "savingPercentage" : {
+        "string" : "0.00"
+      },
+      "tenureNonDiscountedAmountTotal" : {
+        "string" : "0.15"
+      },
+      "chargeDelay" : null,
+      "discounts" : {
+        "array" : [ ]
+      },
+      "tenureNonDiscountedAmountTotal_Currency" : {
+        "double" : 0.15
+      },
+      "savingAmount_Currency" : {
+        "double" : 0.0
+      },
+      "rate_Currency" : {
+        "double" : 0.15
+      },
+      "pointOfSaleAmount_Currency" : {
+        "double" : 0.15
+      },
+      "amount_Currency" : {
+        "double" : 0.15
+      },
+      "nextRenewalAmount_Currency" : {
+        "double" : 0.15
+      },
+      "fullAmount_Currency" : {
+        "double" : 0.15
+      }
+    } ]
+  },
+  "billingAddress" : null,
+  "referrerInformation" : null,
+  "advice" : null,
+  "userAgent" : {
+    "string" : "AHC/2.0"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "origin" : "oogway-us",
+  "activityType" : "PROFILE_CREATED",
+  "event" : "PROFILE_CREATED",
+  "householdId" : "blablabla",
+  "originatingSystem" : "IMS",
+  "provider" : "NBCU",
+  "proposition" : null,
+  "activityTimestamp" : "2019-12-20T12:59:26.272-05:00",
+  "profileId" : "************************************",
+  "providerTerritory" : "US",
+  "data" : {
+    "profile" : {
+      "username" : {
+        "string" : "*****"
+      },
+      "targetedoptin" : {
+        "boolean" : true
+      },
+      "trackingid" : "BSqaHNxBPI/RwL3J/xoxB6ovkz78ScQwgwwOdsyCuII=",
+      "firstname" : null,
+      "title" : null,
+      "emailverified" : {
+        "boolean" : false
+      },
+      "targetedoptindate" : {
+        "string" : "+51938-11-09T09:35:45-05:00"
+      },
+      "services" : { },
+      "mobilenumber" : null,
+      "targetedoptoutdate" : null,
+      "hhuserauthorised" : null,
+      "dateofbirth" : null,
+      "hhid" : null,
+      "mobilenumberverified" : null,
+      "displayname" : null,
+      "securityquestionid" : null,
+      "mobilenumberchanged" : null,
+      "skyoptin" : true,
+      "email" : {
+        "string" : "*****@qa.com"
+      },
+      "contactemail" : {
+        "string" : "*****@qa.com"
+      },
+      "emailchanged" : {
+        "string" : "+51938-11-09T09:35:45-05:00"
+      },
+      "euportability" : false,
+      "hhusertype" : "guest",
+      "lastname" : null,
+      "termsandconditionsaccepted" : true,
+      "nsprofileid" : "edbde38a-6136-4448-803b-ac36bdf34736",
+      "passwordrequireschange" : {
+        "boolean" : false
+      },
+      "registrationdate" : "+51938-11-09T09:35:45-05:00"
+    },
+    "singleusetoken" : {
+      "string" : "a579308db446b96c78f2c824e55e45aa39304f1967a90a67b318cdd60e50f7b9"
+    },
+    "servicename" : {
+      "string" : "nbcuott-us"
+    },
+    "contexturl" : null,
+    "operatorreference" : null,
+    "obfuscatedids" : {
+      "urban_airship" : {
+        "profileid" : "df6685f3cf0bd26e6697a1d8847146d39ca3ffad",
+        "partyid" : "df6685f3cf0bd26e6697a1d8847146d39ca3ffad"
+      },
+      "qubit" : {
+        "profileid" : "364b481bfed1a011f202f22a713cd0c03c508315",
+        "partyid" : "364b481bfed1a011f202f22a713cd0c03c508315"
+      },
+      "braze" : {
+        "profileid" : "bbd93ab6694ce7d52fea62c461d0b3288c18bf79",
+        "partyid" : "bbd93ab6694ce7d52fea62c461d0b3288c18bf79"
+      },
+      "internal_userid" : {
+        "profileid" : "d67c32c1ebe252742ab84fe4129479c5f4a584f0",
+        "partyid" : "d67c32c1ebe252742ab84fe4129479c5f4a584f0"
+      },
+      "tax_jar" : {
+        "profileid" : "9bb0a8dc8cd47ecbb005bfd9f15331fbef40fa9e",
+        "partyid" : "9bb0a8dc8cd47ecbb005bfd9f15331fbef40fa9e"
+      },
+      "ad_smart" : {
+        "profileid" : "45921e1787993bbbc207310632d3e70cfa8c2613",
+        "partyid" : "45921e1787993bbbc207310632d3e70cfa8c2613"
+      },
+      "barclaycard" : {
+        "profileid" : "50683f9fbf8a47415ed097114a60082877dc06aa",
+        "partyid" : "50683f9fbf8a47415ed097114a60082877dc06aa"
+      },
+      "experian" : {
+        "profileid" : "3aeccc372d642596c4982d948a752b4ac142c872",
+        "partyid" : "3aeccc372d642596c4982d948a752b4ac142c872"
+      },
+      "advertisingid" : {
+        "profileid" : "66baa80c52cebc80791afc5a1025605d221489ef",
+        "partyid" : "66baa80c52cebc80791afc5a1025605d221489ef"
+      },
+      "mparticle" : {
+        "profileid" : "c3e01be435f51bf083d2c0248e74124280597037",
+        "partyid" : "c3e01be435f51bf083d2c0248e74124280597037"
+      },
+      "firebase" : {
+        "profileid" : "09e5ed6e1fbc5d0f36182d00e59ed5e5661fa716",
+        "partyid" : "09e5ed6e1fbc5d0f36182d00e59ed5e5661fa716"
+      },
+      "adobe_campaign_manager" : {
+        "profileid" : "644ff58f61e3258477d39bf507f7aa2c8855ab56",
+        "partyid" : "644ff58f61e3258477d39bf507f7aa2c8855ab56"
+      },
+      "salesforce" : {
+        "profileid" : "e844102383a9c7f16750f66b0dfdc9ae7a4244f4",
+        "partyid" : "e844102383a9c7f16750f66b0dfdc9ae7a4244f4"
+      },
+      "omniture" : {
+        "profileid" : "a91bddf43ee86f26a84b9e20630dfe6e1010c6e5",
+        "partyid" : "a91bddf43ee86f26a84b9e20630dfe6e1010c6e5"
+      },
+      "skoonie_data_hub" : {
+        "profileid" : "701ddecec9bb9491ca1a72c2c6220099d36a226e",
+        "partyid" : "701ddecec9bb9491ca1a72c2c6220099d36a226e"
+      },
+      "yospace" : {
+        "profileid" : "66baa80c52cebc80791afc5a1025605d221489ef",
+        "partyid" : "66baa80c52cebc80791afc5a1025605d221489ef"
+      },
+      "appdynamics" : {
+        "profileid" : "3e14720b1926e098c6bfadb7f0ae044356ab5e10",
+        "partyid" : "3e14720b1926e098c6bfadb7f0ae044356ab5e10"
+      },
+      "conviva" : {
+        "profileid" : "71ec95447d16a781bae79bef9543138dcc80bc54",
+        "partyid" : "71ec95447d16a781bae79bef9543138dcc80bc54"
+      },
+      "freewheel" : {
+        "profileid" : "blablabla",
+        "partyid" : "66baa80c52cebc80791afc5a1025605d221489ef"
+      },
+      "adobe_dmp" : {
+        "profileid" : "7e580b6ec7c7bd1690d3573d86e36bbc397791fb",
+        "partyid" : "7e580b6ec7c7bd1690d3573d86e36bbc397791fb"
+      },
+      "ad_profiler" : {
+        "profileid" : "7a3e65713624caa1cb544a111efd0a833024c735",
+        "partyid" : "7a3e65713624caa1cb544a111efd0a833024c735"
+      },
+      "comscore" : {
+        "profileid" : "a9a792857a94f537e4ec4581679b64640f9fcd48",
+        "partyid" : "a9a792857a94f537e4ec4581679b64640f9fcd48"
+      },
+      "fluxcapacitor" : {
+        "profileid" : "c0f5959411e9ffa8f32ee47f84c9c617a174fe31",
+        "partyid" : "c0f5959411e9ffa8f32ee47f84c9c617a174fe31"
+      },
+      "adobe_analytics" : {
+        "profileid" : "b81d6a149943e99c60918f96cb6a2f2e5c47bad4",
+        "partyid" : "b81d6a149943e99c60918f96cb6a2f2e5c47bad4"
+      }
+    }
+  },
+  "id" : "f4642220-5c67-4426-b169-eccb0e0277c8"
+}

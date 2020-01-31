@@ -1,48 +1,50 @@
 package tests.TestRunner;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.testng.annotations.Test;
 import tests.Utilities.TestBase;
 import tests.Utilities.Utils;
 import io.restassured.http.ContentType;
 
-import static org.testng.Assert.*;
-
-import org.testng.annotations.Test;
-
+import javax.security.auth.login.Configuration;
+import java.io.FileReader;
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static tests.Utilities.Utils.*;
-
+import static tests.Utilities.JsonManipulation.*;
+import static tests.Utilities.configReader.*;
 import static io.restassured.RestAssured.*;
+import static org.testng.Assert.*;
 
 public class VapPostMethods extends TestBase {
 
-    public static String household_id;
-    public static String obfuscatedFreewheelProfile_id;
+    public static String household_id = generateHousehold_id();
+    public static String obfuscatedFreewheelProfile_id = generateObfuscatedFreewheelProfile_id();
+    public static LocalDateTime localDateTime = LocalDateTime.now();
 
     @Test
-    public void Create_new_Profile_With_Post_and_Validate() {
+    public static void Create_new_Profile_With_Post_and_Validate() throws Exception {
         extentLogger = report.createTest("Posting new Subscriber and validating response ");
         vapResponse = returnVapResponse();
 
-        household_id = Utils.generateHousehold_id();
-        obfuscatedFreewheelProfile_id = Utils.generateObfuscatedFreewheelProfile_id();
+        String json = manipulate_create_Profile(getProfile_CreateJson(), household_id, obfuscatedFreewheelProfile_id).toString();
+        String schemastr = getProfile_CreateAVSC().toString();
+        String encode = jsonToAvroAndEncode(json, schemastr);
+
 
         try {
             given().contentType(ContentType.JSON).body("{\n" +
-
-                    "    \"origin\": \"oogway-us\"," +
-                    "    \"event\": \"PROFILE_CREATED\"," +
-                    "    \"data\": {" +
-                    "        \"profile\": {" +
-                    "            \"profileid\": \"" + household_id + "\"" +
-                    "        }," +
-                    "        \"obfuscatedids\": {" +
-                    "            \"freewheel\": {" +
-                    "                \"profileid\": \"" + obfuscatedFreewheelProfile_id + "\"" +
-                    "            }" +
-                    "        }" +
-                    "    }" +
+                    "\t\"message\": {\n" +
+                    "\t\t\"data\": \"" + encode + "\",\n" +
+                    "\t\t\"messageId\": \"902441421168572\",\n" +
+                    "\t\t\"message_id\": \"902441421168572\",\n" +
+                    "\t\t\"publishTime\": \"" + localDateTime + "\",\n" +
+                    "\t\t\"publish_time\": \"" + localDateTime + "\"\n" +
+                    "\t},\n" +
+                    "\t\"subscription\": \"projects/nbcu-sdp-prod-003/subscriptions/us-oogway-profile-created-secured-ad-profiler-subscription\"\n" +
                     "}").post().then().statusCode(200).log().body();
 
 
@@ -57,49 +59,38 @@ public class VapPostMethods extends TestBase {
         } catch (Throwable e) {
             extentLogger.info(e.fillInStackTrace());
             extentLogger.info(vapResponse.prettyPrint());
-
             throw e;
         }
-
     }
 
 
-    @Test(dependsOnMethods = {"Create_new_Profile_With_Post_and_Validate"})
-    public void Purchase_Subscription_type() {
-
+    @Test(dependsOnMethods = "Create_new_Profile_With_Post_and_Validate")
+    public static void Purchase_Subscription_type() throws Exception {
         extentLogger = report.createTest("Purchasing subscription type and confirming");
         vapResponse = returnVapResponse();
 
-        String sub = household_id;
+
+        String json = manipulate_purchase_Success(getPurchase_SuccessJson(), household_id).toString();
+        String schemastr = getPurchase_SuccessAVSC().toString();
+        String encode = jsonToAvroAndEncode(json, schemastr);
+
         try {
             given().contentType(ContentType.JSON).body("{\n" +
-                    "    \"originatingSystem\": \"PAYMENTS_MANAGER\",\n" +
-                    "    \"activityType\": \"PURCHASE_SUCCESS\",\n" +
-                    "    \"householdId\": \"" + sub + "\",\n" +
-                    "    \"subscriptions\": {\n" +
-                    "        \"added\": [\n" +
-                    "            {\n" +
-                    "                \"productStaticId\": \"D2C_SUBSCRIPTION_MONTH\"\n" +
-                    "            },\n" +
-                    "            {\n" +
-                    "                \"productStaticId\": \"ADLITE_PDL_SUBSCRIPTION\"\n" +
-                    "            }\n" +
-                    "        ],\n" +
-                    "        \"updated\": [\n" +
-                    "            {\n" +
-                    "                \"productStaticId\": \"D2C_SUBSCRIPTION_MONTH\"\n" +
-                    "            },\n" +
-                    "            {\n" +
-                    "                \"productStaticId\": \"ADLITE_PDL_SUBSCRIPTION\"\n" +
-                    "            }\n" +
-                    "        ]\n" +
-                    "    }\n" +
+                    "\t\"message\": {\n" +
+                    "\t\t\"data\": \"" + encode + "\",\n" +
+                    "\t\t\"messageId\": \"902441421168572\",\n" +
+                    "\t\t\"message_id\": \"902441421168572\",\n" +
+                    "\t\t\"publishTime\": \"" + localDateTime + "\",\n" +
+                    "\t\t\"publish_time\": \"" + localDateTime + "\"\n" +
+                    "\t},\n" +
+                    "\t\"subscription\": \"projects/nbcu-sdp-prod-003/subscriptions/us-payment-manager-purchase-success-secured-ad-profiler-subscription\"\n" +
                     "}").post().then().statusCode(200).log().body();
 
             extentLogger.info(vap_env);
+
             vapSubscriber = returnVapSubscriber(obfuscatedFreewheelProfile_id);
             assertEquals(vapSubscriber.jsonPath().get("subscriptionType"), "af");
-            extentLogger.pass("subscriptionType of id:  " + "\"" + sub + "\"" + " has changed to \"af\"");
+            extentLogger.pass("subscriptionType of id:  " + "\"" + household_id + "\"" + " has changed to \"af\"");
 
             vamResponse = returnVamResponse(obfuscatedFreewheelProfile_id);
             Map<Object, Object> vam = Utils.vamKeyValues();
@@ -111,51 +102,52 @@ public class VapPostMethods extends TestBase {
             extentLogger.info(e.fillInStackTrace());
             extentLogger.info(vapResponse.prettyPrint());
             if (!vapSubscriber.jsonPath().get("subscriptionType").equals("af"))
-                extentLogger.fail("subscriptionType of id:  " + "\"" + sub + "\"" + " is not changed to \"af\"");
+                extentLogger.fail("subscriptionType of id:  " + "\"" + household_id + "\"" + " is not changed to \"af\"");
             throw e;
         }
 
     }
 
 
-    @Test(dependsOnMethods = {"Purchase_Subscription_type"})
-    public void Cancel_Subsription_using_Post() {
+    @Test(dependsOnMethods = {"Purchase_Subscription_type", "Create_new_Profile_With_Post_and_Validate"})
+    public static void Cancel_Subsription_using_Post() throws Exception {
         extentLogger = report.createTest("Canceling subscription");
         vapResponse = returnVapResponse();
 
-        String sub = household_id;
+        String json = manipulate_cancel_Subscription(getCancel_SubscriptionJson(), household_id).toString();
+        String schemastr = getCancel_SubscriptionAVSC().toString();
+        String encode = jsonToAvroAndEncode(json, schemastr);
+
+        System.out.println(encode);
         try {
             given().contentType(ContentType.JSON).body("{\n" +
-                    "    \"originatingSystem\": \"PAYMENTS_MANAGER\",\n" +
-                    "    \"activityType\": \"CANCEL_SUBSCRIPTION_SUCCESS\",\n" +
-                    "    \"householdId\": \"" + sub + "\",\n" +
-                    "    \"subscription\": {\n" +
-                    "        \"productStaticId\": \"D2C_SUBSCRIPTION_MONTH\"\n" +
-                    "    }\n" +
-                    "}").post().then().statusCode(200).log().body();
+                    "\t\"message\": {\n" +
+                    "\t\t\"data\": \"" + encode + "\",\n" +
+                    "\t\t\"messageId\": \"902441421168572\",\n" +
+                    "\t\t\"message_id\": \"902441421168572\",\n" +
+                    "\t\t\"publishTime\": \"" + localDateTime + "\",\n" +
+                    "\t\t\"publish_time\": \"" + localDateTime + "\"\n" +
+                    "\t},\n" +
+                    "\t\"subscription\": \"projects/nbcu-sdp-prod-003/subscriptions/us-payment-manager-cancel-sub-success-secured-ad-profiler-subscription\"\n" +
+                    "}").post().then().log().body();
 
 
             extentLogger.info(vap_env);
             vapSubscriber = returnVapSubscriber(obfuscatedFreewheelProfile_id);
             assertEquals(vapSubscriber.jsonPath().get("subscriptionType"), "as");
-            extentLogger.pass("subscriptionType of id:  " + "\"" + sub + "\"" + " has changed to \"as\"");
+            extentLogger.pass("subscriptionType of id:  " + "\"" + household_id + "\"" + " has changed to \"as\"");
 
             vamResponse = returnVamResponse(obfuscatedFreewheelProfile_id);
             Map<Object, Object> vam = Utils.vamKeyValues();
 
             assertEquals(vam.get("ap_subtype"), vapSubscriber.jsonPath().get("subscriptionType"));
-
-//            String error=vapResponse.jsonPath().getString("messages.error");
-//            if(error.matches("^[a-zA-Z]*$"))
-//                extentLogger.info(error);
-
             extentLogger.info("Milliseconds:  " + vapResponse.getTimeIn(TimeUnit.MILLISECONDS));
 
         } catch (Throwable e) {
             extentLogger.info(e.fillInStackTrace());
             extentLogger.info(vapResponse.prettyPrint());
             if (!vapSubscriber.jsonPath().get("subscriptionType").equals("as"))
-                extentLogger.fail("subscriptionType of id:  " + "\"" + sub + "\"" + " has not changed and its \"af\"");
+                extentLogger.fail("subscriptionType of id:  " + "\"" + household_id + "\"" + " is \"af\"");
             throw e;
         }
     }

@@ -1,0 +1,79 @@
+{
+  "originatingSystem" : {
+    "string" : "PAYMENTS_MANAGER"
+  },
+  "activityTimestamp" : "2019-12-23T09:18:20.68-05:00",
+  "activityType" : {
+    "string" : "CANCEL_SUBSCRIPTION_SUCCESS"
+  },
+  "provider" : "NBCU",
+  "providerTerritory" : "US",
+  "householdId" : {
+    "string" : "b8a0ec58-f0de-4518-9590-f4f37c34ec7e"
+  },
+  "proposition" : "NBCUOTT",
+  "deviceType" : {
+    "string" : "COMPUTER"
+  },
+  "requestId" : {
+    "string" : "8040e94b-c1d3-4602-a998-b45ab951310f"
+  },
+  "orderId" : {
+    "string" : "ac344cfd-174c-4ad3-a25a-14ae24d4c8c5"
+  },
+  "devicePlatform" : {
+    "string" : "PC"
+  },
+  "cancellationType" : {
+    "string" : "USER_CANCELLED"
+  },
+  "userId" : {
+    "string" : "b8a0ec58-f0de-4518-9590-f4f37c34ec7e"
+  },
+  "subscription" : {
+    "subscription" : {
+      "state" : {
+        "string" : "USER_CANCELLED"
+      },
+      "entitlementIds" : {
+        "array" : [ "0aacdcd4-414d-47f9-86da-2656258c5e0d" ]
+      },
+      "productStaticId" : {
+        "string" : "ADLITE_PDL_SUBSCRIPTION"
+      },
+      "id" : {
+        "string" : "a0088f62-3ff1-4393-b2c8-b7a255376bfd"
+      },
+      "cancelledEffectiveDate" : {
+        "string" : "2019-12-30T09:17:13-05:00"
+      },
+      "productId" : {
+        "string" : "C_008066"
+      },
+      "context" : {
+        "context_subscription" : {
+          "startDate" : {
+            "string" : "2019-12-23T09:17:13-05:00"
+          },
+          "isIncluded" : {
+            "string" : "True"
+          },
+          "endDate" : {
+            "string" : "2019-12-30T09:17:13-05:00"
+          },
+          "subscriptionType" : {
+            "string" : "TRIAL"
+          },
+          "paymentType" : {
+            "string" : "PAYMENT"
+          },
+          "staticId" : {
+            "string" : "ADLITE_PDL_SUBSCRIPTION"
+          },
+          "offers" : null
+        }
+      }
+    }
+  },
+  "subscriptions" : null
+}

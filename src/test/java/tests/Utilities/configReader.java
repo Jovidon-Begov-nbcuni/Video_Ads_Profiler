@@ -11,10 +11,10 @@ public class configReader {
     static {
 
         try {
-            String path= "src/test/resources/PropertiesFiles/configuration.properties";
-            FileInputStream input=new FileInputStream(path);
+            String path = "src/test/resources/PropertiesFiles/configuration.properties";
+            FileInputStream input = new FileInputStream(path);
 
-            configFile =new Properties();
+            configFile = new Properties();
             configFile.load(input);
 
         } catch (Exception e) {
@@ -22,7 +22,7 @@ public class configReader {
         }
     }
 
-    public static String getProperty(String keyName){
+    public static String getProperty(String keyName) {
         return configFile.getProperty(keyName);
 
     }

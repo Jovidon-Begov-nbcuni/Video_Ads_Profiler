@@ -1,0 +1,133 @@
+{
+    "type": "record",
+    "name": "PaymentManagerCancelSubscriptionSuccess",
+    "fields": [
+        {"name": "originatingSystem", "type": ["null", "string"] },
+		{"name": "activityTimestamp", "type": "string" },
+		{"name": "activityType", "type": ["null", "string"] },
+		{"name": "provider", "type": "string" },
+		{"name": "providerTerritory", "type": "string"},
+		{"name": "householdId", "type": ["null", "string"] },
+		{"name": "proposition", "type": "string" },
+		{"name": "deviceType", "type": ["null", "string"] },
+		{"name": "requestId", "type": ["null", "string"] },
+		{"name": "orderId", "type": ["null", "string"] },
+        {"name": "devicePlatform", "type": ["null", "string"] },
+		{"name": "cancellationType", "type": ["null", "string"] },
+		{"name": "userId", "type": ["null", "string"] },
+		{
+			"name": "subscription",
+			"type": [
+				"null",
+				{
+					"name": "subscription",
+					"type": "record",
+					"fields": [
+						{"name": "state", "type": ["null", "string"] },
+						{"name": "entitlementIds", "type": ["null", {"type":"array","items":"string"} ] },
+						{"name": "productStaticId", "type": ["null", "string"] },
+						{"name": "id", "type": ["null", "string"] },
+						{"name": "cancelledEffectiveDate", "type": ["null", "string"] },
+						{"name": "productId", "type": ["null", "string"] },
+						{
+							"name": "context",
+							"type": [
+								"null",
+								{
+									"name": "context_subscription",
+									"type": "record",
+									"fields": [
+										{"name": "startDate", "type": ["null", "string"] },
+										{"name": "isIncluded", "type": ["null", "string"] },
+										{"name": "endDate", "type": ["null", "string"] },
+										{"name": "subscriptionType", "type": ["null", "string"] },
+										{"name": "paymentType", "type": ["null", "string"] },
+										{"name": "staticId", "type": ["null", "string"] },
+										{
+											"name": "offers",
+											"type": [
+												"null",
+												{
+													"type": "array",
+													"items": {
+														"name":"offers_subscription",
+														"type": "record",
+														"fields": [
+															{"name": "startDate", "type": ["null", "string"] },
+															{"name": "endDate", "type": ["null", "string"] },
+															{"name": "id", "type": ["null", "string"] },
+															{"name": "staticId", "type": ["null", "string"] }
+														]
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "subscriptions",
+			"type": [
+				"null",
+				{
+					"type": "array",
+					"items": {
+						"name":"subscriptions",
+						"type": "record",
+						"fields": [
+							{"name": "state", "type": ["null", "string"] },
+							{"name": "entitlementIds", "type": ["null", {"type":"array","items":"string"} ] },
+							{"name": "productStaticId", "type": ["null", "string"] },
+							{"name": "id", "type": ["null", "string"] },
+							{"name": "cancelledEffectiveDate", "type": ["null", "string"] },
+							{"name": "productId", "type": ["null", "string"] },
+							{
+								"name": "context",
+								"type": [
+									"null",
+									{
+										"name": "context_subscriptions",
+										"type": "record",
+										"fields": [
+											{"name": "startDate", "type": ["null", "string"] },
+											{"name": "isIncluded", "type": ["null", "string"] },
+											{"name": "endDate", "type": ["null", "string"] },
+											{"name": "subscriptionType", "type": ["null", "string"] },
+											{"name": "paymentType", "type": ["null", "string"] },
+											{"name": "staticId", "type": ["null", "string"] },
+											{
+												"name": "offers",
+												"type": [
+													"null",
+													{
+														"type": "array",
+														"items": {
+															"name":"offers_subscriptions",
+															"type": "record",
+															"fields": [
+																{"name": "startDate", "type": ["null", "string"] },
+																{"name": "endDate", "type": ["null", "string"] },
+																{"name": "id", "type": ["null", "string"] },
+																{"name": "staticId", "type": ["null", "string"] }
+															]
+														}
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				}
+			
+			]
+		}
+    ]
+}

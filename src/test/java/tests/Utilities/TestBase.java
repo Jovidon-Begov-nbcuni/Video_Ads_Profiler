@@ -13,10 +13,6 @@ import org.apache.logging.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import static io.restassured.RestAssured.*;
 
 public class TestBase {
@@ -33,19 +29,19 @@ public class TestBase {
     protected static Response vapSubscriber;
     protected static Response vapResponse;
 
-    protected static String vap_env=configReader.getProperty("vap.base");
-    protected static String vam_env=configReader.getProperty("vam.base");
-    protected static String vap_subs=configReader.getProperty("vap.subscriber");
+    protected static String vap_env = configReader.getProperty("vap.base");
+    protected static String vam_env = configReader.getProperty("vam.base");
+    protected static String vap_subs = configReader.getProperty("vap.subscriber");
 
 
-    protected static Response returnVapResponse(){
-        RestAssured.baseURI=vap_env;
-            return vapResponse=post();
+    protected static Response returnVapResponse() {
+        RestAssured.baseURI = vap_env;
+        return vapResponse = post();
     }
 
-    protected static Response returnVapSubscriber(String str){
-        RestAssured.baseURI=vap_subs;
-        return vapSubscriber=get(str);
+    protected static Response returnVapSubscriber(String str) {
+        RestAssured.baseURI = vap_subs;
+        return vapSubscriber = get(str);
     }
 
     @BeforeSuite(alwaysRun = true)
@@ -62,10 +58,10 @@ public class TestBase {
         }
         String filePath = System.getProperty("user.dir") + "/test-output/" + test + "/" + "/report.html";
         htmlReporter = new ExtentHtmlReporter(filePath);
-        logger.info("Report path: "+filePath);
+        logger.info("Report path: " + filePath);
         report.attachReporter(htmlReporter);
         report.setSystemInfo("Vap_Env", vap_env);
-        report.setSystemInfo("Vam_Env", vam_env+configReader.getProperty("endPoint"));
+        report.setSystemInfo("Vam_Env", vam_env + configReader.getProperty("endPoint"));
         report.setSystemInfo("User Name", System.getProperty("user.name"));
         report.setSystemInfo("OS", System.getProperty("os.name"));
         report.setSystemInfo("OS Version", System.getProperty("os.version"));
@@ -85,10 +81,9 @@ public class TestBase {
             extentLogger.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " --- Passed ", ExtentColor.GREEN));
         } else if (result.getStatus() == ITestResult.SKIP) {
             extentLogger.skip("Test Case is Skipped: " + result.getName());
-        }else if(result.getStatus()==ITestResult.FAILURE){
-            extentLogger.log(Status.FAIL,MarkupHelper.createLabel(result.getName()+" --- Failed " , ExtentColor.RED));
+        } else if (result.getStatus() == ITestResult.FAILURE) {
+            extentLogger.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " --- Failed ", ExtentColor.RED));
         }
-
 
 
     }

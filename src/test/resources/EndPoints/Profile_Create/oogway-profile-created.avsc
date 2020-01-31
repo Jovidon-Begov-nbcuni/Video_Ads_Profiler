@@ -1,0 +1,101 @@
+{
+	"type":"record",
+	"name":"OogwayProfileCreated",
+	"fields":[
+	   {"name":"origin","type":"string"},
+	   {"name":"activityType","type":"string"},
+	   {"name":"event","type":"string"},
+	   {"name":"householdId","type":"string"},
+	   {"name":"originatingSystem","type":"string"},
+	   {"name":"provider","type":"string"},
+	   {"name":"proposition", "type": ["null", "string"] },
+	   {"name":"activityTimestamp", "type":"string"},
+	   {"name":"profileId","type":"string"},
+	   {"name":"providerTerritory","type":"string"},
+	   {
+		  "name":"data",
+		  "type":{
+			 "name":"data",
+			 "type":"record",
+			 "fields":[
+				{
+				   "name":"profile",
+				   "type":{
+					  "name":"profile",
+					  "type":"record",
+					  "fields":[
+						 {"name":"username","type":["null","string"]},
+						 {"name":"targetedoptin","type":["null","boolean"]},
+						 {"name":"trackingid","type":"string"},
+						 {"name":"firstname","type":["null","string"]},
+						 {"name":"title","type":["null","string"]},
+						 {"name":"emailverified","type":["null","boolean"]},
+						 {"name": "targetedoptindate", "type": ["null", "string"]},
+						 {
+							"name":"services",
+							"type":{
+							   "name":"services",
+							   "type":"map",
+							   "values":  {
+							      "name":"services_value",
+							      "type":"record",
+							      "fields":[
+							  	     {"name": "start", "type": ["null", "string"]},
+							  	     {"name": "end", "type": ["null", "string"]},
+							  	     {"name": "globalaccess", "type": ["null", "string"]},
+							  	     {"name": "mailbox", "type": ["null", "string"]},
+							  	     {"name": "name", "type": ["null", "string"]},
+							  	     {"name": "suspended", "type": ["null", "boolean"]},
+							  	     {"name": "fullysignedup", "type": ["null", "string"]}
+							      ]
+							   }
+						    }
+						 },
+						{"name": "mobilenumber", "type": ["null", "string"]},
+						{"name": "targetedoptoutdate", "type": ["null", "string"]},
+						{"name": "hhuserauthorised", "type": ["null", "string"]},
+						{"name": "dateofbirth", "type": ["null", "string"]},
+						{"name": "hhid", "type": ["null", "string"]},
+						{"name": "mobilenumberverified", "type": ["null", "boolean"]},
+						{"name": "displayname", "type": ["null", "string"]},
+						{"name": "securityquestionid", "type": ["null", "string"]},
+						{"name": "mobilenumberchanged", "type": ["null", "long"]},
+						{"name": "skyoptin", "type": "boolean"},
+						{"name": "email", "type": ["null", "string"]},
+						{"name": "contactemail", "type": ["null", "string"]},
+						{"name": "emailchanged", "type": ["null", "string"]},
+						{"name": "euportability", "type": "boolean"},
+						{"name": "hhusertype", "type": "string"},
+						{"name": "lastname", "type": ["null", "string"]},
+						{"name": "termsandconditionsaccepted", "type": "boolean"},
+						{"name": "nsprofileid", "type": "string"},
+						{"name": "passwordrequireschange", "type": ["null", "boolean"]},
+						{"name": "registrationdate", "type": "string"}
+					  ]
+				   }
+				},
+				{"name": "singleusetoken", "type": ["null", "string"]},
+				{"name": "servicename", "type": ["null", "string"]},
+				{"name": "contexturl", "type": ["null", "string"]},
+				{"name": "operatorreference", "type": ["null", "string"]},
+				{
+						"name":"obfuscatedids",
+                        "type":{
+                            "name":"obfuscatedids",
+                            "type":"map",
+							"values":{
+								"name":"obfuscatedids_value",
+								"type":"record",
+								"fields":[
+									{"name": "profileid", "type": "string"},
+									{"name": "partyid", "type": "string"}
+								]
+							}
+						}
+					}
+			 ]
+		  }
+	   },
+	   {"name":"id","type":"string"}
+	]
+ }

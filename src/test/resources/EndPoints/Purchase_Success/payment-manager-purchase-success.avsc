@@ -1,0 +1,503 @@
+{
+    "type": "record",
+    "name": "PaymentsManagerPurchaseSuccess",
+    "fields": [
+				{"name": "originatingSystem", "type": ["null", "string"] },
+				{"name": "activityTimestamp", "type": ["null", "string"] },
+				{"name": "activityType", "type": ["null", "string"] },
+				{"name": "provider", "type": ["null", "string"] },
+				{"name": "providerTerritory", "type": ["null", "string"] },
+				{"name": "householdId", "type": ["null", "string"] },
+				{"name": "proposition", "type": ["null", "string"] },
+				{"name": "requestId", "type": ["null", "string"] },
+				{"name": "deviceType", "type": ["null", "string"] },
+				{"name": "devicePlatform", "type": ["null", "string"] },
+				{"name": "orderId", "type": ["null", "string"] },
+				{"name": "purchaseType", "type": ["null", "string"] },
+				{"name": "partnerId", "type": ["null", "string"] },
+				{"name":"segmentType",  "type":["null", {"type": "array", "items": "string"}] },
+				{"name": "PaymentProtectionAccept", "type": ["null", "string"] },
+				{"name": "deviceId", "type": ["null", "string"] },
+				{"name": "userId", "type": ["null", "string"] },
+				{
+					"name": "vouchers",
+					"type": [
+							"null",
+							{
+								"type": "array",
+								"items": {
+										"type": "record",
+										"name": "vouchers",
+										"fields": [
+											{"name": "voucherCode", "type": ["null", "string"] },
+											{"name": "primaryProductIds", "type": ["null", "string"] }
+										]
+								}
+							}
+					]
+				},
+				{
+					"name": "products",
+					"type": [
+							"null",
+							{
+								"type": "array",
+								"items": {
+									"type": "record",
+									"name": "products",
+									"fields": [
+										{"name": "id", "type": ["null", "string"] },
+										{"name": "staticId", "type": ["null", "string"] },
+										{"name": "quantity", "type": ["null", "int"] },
+										{"name": "category", "type": ["null", "string"] },
+										{"name": "includedBy", "type": ["null", "string"] },
+										{
+											"name": "relevantContext",
+											"type": {
+												"name": "relevantContext",
+												"type": "record",
+												"fields": [
+													{"name": "duration", "type": ["null", "string"] },
+													{"name": "isIncluded", "type": ["null", "string"] },
+													{"name": "nextRenewalDueDate", "type": ["null", "string"] },
+													{
+														"name": "offers",
+														"type": [
+																"null",
+																{
+																	"type": "array",
+																	"items": {
+																			"type": "record",
+																			"name": "offers_relevantContext",
+																			"fields": [
+																				{"name": "duration", "type": ["null", "string"] },
+																				{"name": "id", "type": ["null", "string"] },
+																				{"name": "staticId", "type": ["null", "string"] }
+																			]
+																	}
+																}
+														]
+													},												
+													{"name": "paymentType", "type": ["null", "string"] },
+													{"name": "startDate", "type": ["null", "string"] },
+													{"name": "endDate", "type": ["null", "string"] },
+													{"name": "staticId", "type": ["null", "string"] },
+													{"name": "subscriptionType", "type": ["null", "string"] }
+																										
+												]
+
+											}
+										}
+									]
+								}
+							}
+					]
+				},
+				{
+					"name": "payment",
+					"type": ["null",{
+							"name": "payment",
+							"type": "record",
+							"fields": [
+								{"name": "paymentTransactionId", "type": ["null", "string"] },
+								{"name": "paymentProvider", "type": ["null", "string"] },
+								{"name": "amountAuthorised", "type": ["null", "string"] },
+								{"name": "currency", "type": ["null", "string"] },
+								{"name": "method", "type": ["null", "string"] },
+								{"name": "customerReference", "type": ["null", "string"] },
+								{"name": "lastDigits", "type": ["null", "string"] },
+								{"name": "expiryDate", "type": ["null", "string"] },
+								{"name": "alias", "type": ["null", "string"] },
+								{"name": "issuerCountry", "type": ["null", "string"] },
+								{"name": "paymentContractType", "type": ["null", "string"] },
+								{"name": "signupEmail", "type": ["null", "string"] },
+								{"name": "paymentProtectionResult",
+									"type": [ "null", {
+											"name": "paymentProtectionResult",
+											"type": "record",
+											"fields": [                    
+												{
+													"name": "SecureAuthorisationResult",
+													"type": {
+														"name":"SecureAuthorisationResult",
+														"type": "record",
+														"fields": [
+															{"name": "md", "type": ["null", "string"] },
+															{"name": "paResponse", "type": ["null", "string"] }
+														]
+													}
+												}
+											]
+									}]
+								},
+								{"name": "amountAuthorised_Currency", "type": ["null", "double"] }
+							]
+					}]
+				},
+				{
+					"name": "delivery",
+					"type": ["null",{
+						"name": "delivery",
+						"type": "record",
+						"fields": [
+								{"name": "method", "type": ["null", "string"] },
+								{"name": "email", "type": ["null", "string"] },
+								{"name": "phone", "type": ["null", "string"] },
+								{
+									"name": "addressee",
+									"type": {
+											"name": "addressee",
+											"type": "record",
+											"fields": [
+												{"name": "firstName", "type": ["null", "string"] },
+												{"name": "lastName", "type": ["null", "string"] }
+											]
+										}
+								},						
+								{
+									"name": "address",
+									"type": {
+											"name": "address",
+											"type": "record",
+											"fields": [
+												{"name": "town", "type": ["null", "string"] },
+												{"name": "countryCode", "type": ["null", "string"] },
+												{"name": "country", "type": ["null", "string"] },
+												{"name": "addressLine2", "type": ["null", "string"] },
+												{"name": "addressLine3", "type": ["null", "string"] },
+												{"name": "addressLine1", "type": ["null", "string"] },
+												{"name": "postCode", "type": ["null", "string"] },
+												{"name": "houseName", "type": ["null", "string"] },
+												{"name": "nif", "type": ["null", "string"] },
+												{"name": "province", "type": ["null", "string"] },
+												{"name": "customsCountryCode", "type": ["null", "string"] }
+											]
+									}
+								}			
+						]
+					}]
+				},
+				{
+					"name": "offers",
+					"type": [
+							"null",
+							{
+								"type": "array",
+								"items": {
+										"type": "record",
+										"name": "offers",
+										"fields": [
+											{"name": "id", "type": ["null", "string"] },
+											{"name": "duration", "type": ["null", "string"] }
+											
+										]
+								}
+							}
+					]
+				},
+				{
+					"name": "subscriptions",
+					"type": ["null",{
+					   "name": "subscriptions",
+					   "type": "record",
+					   "fields": [				   
+							{
+								"name": "added",
+								"type": [
+										"null",
+										{
+											"type": "array",
+											"items": {
+													"type": "record",
+													"name": "added",
+													"fields": [
+														{"name": "id", "type": ["null", "string"] },
+														{"name": "productId", "type": ["null", "string"] },
+														{"name": "productStaticId", "type": ["null", "string"] },
+														{
+															"name": "context",
+															"type": {
+																"name":"context_added",
+																"type": "record",
+																"fields": [
+																	{"name": "duration", "type": ["null", "string"] },
+																	{"name": "isIncluded", "type": ["null", "string"] },
+																	{
+																		"name": "offers",
+																		"type": [
+																			"null",
+																			{
+																				"type": "array",
+																				"items": {
+																						"type": "record",
+																						"name": "offers_added",
+																						"fields": [
+																							{"name": "duration", "type": ["null", "string"] },
+																							{"name": "id", "type": ["null", "string"] },
+																							{"name": "staticId", "type": ["null", "string"] }
+																						]
+																				}
+																			}
+																		]
+																	},
+																	{"name": "paymentType", "type": ["null", "string"] },
+																	{"name": "staticId", "type": ["null", "string"] },
+																	{"name": "subscriptionType", "type": ["null", "string"] }
+																]
+															}
+														}
+													]
+											}
+										}
+								]
+							},
+							{
+								"name": "updated",
+								"type": [
+										"null",
+										{
+											"type": "array",
+											"items": {
+													"type": "record",
+													"name": "updated",
+													"fields": [
+														{"name": "id", "type": ["null", "string"] },
+														{"name": "productId", "type": ["null", "string"] },
+														{"name": "productStaticId", "type": ["null", "string"] },
+														{
+															"name": "context",
+															"type": {
+																"name":"context_updated",
+																"type": "record",
+																"fields": [
+																	{"name": "duration", "type": ["null", "string"] },
+																	{"name": "isIncluded", "type": ["null", "string"] },
+																	{"name": "nextRenewalDueDate", "type": ["null", "string"] },
+																	{
+																		"name": "offers",
+																		"type": [
+																			"null",
+																			{
+																				"type": "array",
+																				"items": {
+																						"type": "record",
+																						"name": "offers_updated",
+																						"fields": [
+																							{"name": "duration", "type": ["null", "string"] },
+																							{"name": "id", "type": ["null", "string"] },
+																							{"name": "staticId", "type": ["null", "string"] }
+																						]
+																				}
+																			}
+																		]
+																	},
+																	{"name": "paymentType", "type": ["null", "string"] },
+																	{"name": "startDate", "type": ["null", "string"] },
+																	{"name": "staticId", "type": ["null", "string"] },
+																	{"name": "subscriptionType", "type": ["null", "string"] }
+																]
+															}
+														}
+													]
+											}
+										}
+								]
+							}							
+						]								
+					}]
+				},
+				{"name": "entitlements",
+						"type": [
+								"null",
+								{
+									"type": "array",
+									"items": {
+											"type": "record",
+											"name": "entitlements",
+											"fields": [
+												{"name": "id", "type": ["null", "string"] },
+												{"name": "name", "type": ["null", "string"] },
+												{"name": "productId", "type": ["null", "string"] },
+												{"name": "productStaticId", "type": ["null", "string"] },
+												{"name": "state", "type": ["null", "string"] },
+												{"name": "billingType", "type": ["null", "string"] }
+											]
+									}
+								}
+						]
+				},
+				{
+					"name": "hardware",
+					"type": [
+							"null",
+							{
+								"type": "array",
+								"items": {
+										"type": "record",
+										"name": "hardware",
+										"fields": [
+											{"name": "deliveryCode", "type": ["null", "string"] },
+											{"name": "productId", "type": ["null", "string"] },
+											{"name": "productStaticId", "type": ["null", "string"] },
+											{"name": "quantity", "type": ["null", "int"] }
+										]
+								}
+						}
+					]
+				},
+				{
+					"name": "chargeTotals",
+					"type": ["null",{
+						"name": "chargeTotals",
+						"type": "record",
+						"fields": [
+							{
+								"name": "nonRecurring",
+								"type": {
+									"name": "nonRecurring",
+									"type": "record",
+									"fields": [
+										{"name": "fullAmount", "type": ["null", "string"] },
+										{"name": "pointOfSaleAmount", "type": ["null", "string"] },
+										{"name": "fullAmount_Currency", "type": ["null", "double"] },
+										{"name": "pointOfSaleAmount_Currency", "type": ["null", "double"] }
+									]
+								}
+							},
+							{
+								"name": "recurring",
+								"type": {
+									"name": "recurring",
+									"type": "record",
+									"fields": [
+										{"name": "nextRenewalAmount", "type": ["null", "string"] },
+										{"name": "fullAmount", "type": ["null", "string"] },
+										{"name": "pointOfSaleAmount", "type": ["null", "string"] },
+										{"name": "fullAmount_Currency", "type": ["null", "double"] },
+										{"name": "pointOfSaleAmount_Currency", "type": ["null", "double"] }
+									]
+								}
+							},
+							{
+								"name": "total",
+								"type": {
+									"name": "total",
+									"type": "record",
+									"fields": [
+										  {"name": "nextRenewalAmount", "type": ["null", "string"] },
+										  {"name": "fullAmount", "type": ["null", "string"] },
+										  {"name": "pointOfSaleAmount", "type": ["null", "string"] },
+										  {"name": "nextRenewalAmount_Currency", "type": ["null", "double"] },
+										  {"name": "fullAmount_Currency", "type": ["null", "double"] },
+										  {"name": "pointOfSaleAmount_Currency", "type": ["null", "double"] }
+									]
+								}
+							}
+						]
+					}]
+				},
+				{
+					"name": "charges",
+					"type": [
+							"null",
+							{
+								"type": "array",
+								"items": {
+										"type": "record",
+										"name": "charges",
+										"fields": [
+											{"name": "pointOfSaleAmount", "type": ["null", "string"] },
+											{"name": "amount", "type": ["null", "string"] },
+											{"name": "appliedToBusinessId", "type": ["null", "string"] },
+											{"name": "appliedToStaticId", "type": ["null", "string"] },
+											{"name": "billingType", "type": ["null", "string"] },
+											{"name": "fullAmount", "type": ["null", "string"] },
+											{"name": "rate", "type": ["null", "string"] },
+											{"name": "nextRenewalAmount", "type": ["null", "string"] },
+											{"name": "staticId", "type": ["null", "string"] },
+											{"name": "savingAmount", "type": ["null", "string"] },
+											{"name": "savingPercentage", "type": ["null", "string"] },
+											{"name": "tenureNonDiscountedAmountTotal", "type": ["null", "string"] },
+											{"name": "chargeDelay", "type": ["null", "string"] },
+											{
+												"name": "discounts",
+												"type": [
+														"null",
+														{
+															"type": "array",
+															"items": {
+																	"type": "record",
+																	"name": "discounts",
+																	"fields": [
+																		{"name": "businessId", "type": ["null", "string"] },
+																		{"name": "duration", "type": ["null", "string"] },
+																		{"name": "parentOffer", "type": ["null", "string"] },
+																		{"name": "staticId", "type": ["null", "string"] },
+																		{"name": "type", "type": ["null", "string"] },
+																		{"name": "value", "type": ["null", "string"] },
+																		{"name": "deferred", "type": ["null", "boolean"] },
+																		{"name": "value_Currency", "type": ["null", "double"] }
+																	]
+															}
+														}
+												]
+											},
+											{"name": "tenureNonDiscountedAmountTotal_Currency", "type": ["null", "double"] },
+											{"name": "savingAmount_Currency", "type": ["null", "double"] },
+											{"name": "rate_Currency", "type": ["null", "double"] },
+											{"name": "pointOfSaleAmount_Currency", "type": ["null", "double"] },
+											{"name": "amount_Currency", "type": ["null", "double"] },
+											{"name": "nextRenewalAmount_Currency", "type": ["null", "double"] },
+											{"name": "fullAmount_Currency", "type": ["null", "double"] }
+										]
+								}
+							}
+					]
+				},
+				{"name": "billingAddress",
+					"type": [ "null", {
+							"name": "billingAddress",
+							"type": "record",
+							"fields": [
+								{"name": "addressLine1", "type": ["null", "string"]},
+								{"name": "town", "type": ["null", "string"]},
+								{"name": "postcode", "type": ["null", "string"]},
+								{"name": "countryCode", "type": ["null", "string"]}
+							]
+						}]
+				},
+				{
+					"name": "referrerInformation",
+					"type": ["null",{
+							"name": "referrerInformation",
+							"type": "record",
+							"fields": [
+								{"name": "deviceModel", "type": ["null", "string"] },
+								{"name": "purchaseReferrerChannel", "type": ["null", "string"] },
+								{"name": "purchaseReferrerType", "type": ["null", "string"] },
+								{"name": "purchaseReferrerName", "type": ["null", "string"] }
+							]
+					}]
+				},
+				{
+					"name": "advice",
+					"type": [ "null", {
+								"type": "array",
+								"items": {
+										"type": "record",
+										"name": "advice",
+										"fields": [
+											{"name": "advice_code", "type": ["null", "string"] },
+											{"name": "advice_message", "type": ["null", "string"] },
+											{"name":"reference_ids",  "type": {"type": "array", "items": "string"} },
+											{"name":"reference_static_ids",  "type": ["null", {"type": "array", "items": "string"}] },
+											{"name":"subject_ids",  "type": {"type": "array", "items": "string"} },
+											{"name":"subject_static_ids",  "type": ["null", {"type": "array", "items": "string"}] }
+										]
+								}
+							}
+					]
+				},
+				{"name": "userAgent", "type": ["null","string"] }
+	]
+}

@@ -20,10 +20,9 @@ public class HealthStatus extends TestBase {
             try {
                 RestAssured.baseURI = configReader.getProperty("couchbase" + i);
                 couchbaseResponse = get("");
-
                 Assert.assertEquals(couchbaseResponse.statusCode(), 200);
                 extentLogger.pass(configReader.getProperty("couchbase" + i));
-                // extentLogger.info(couchbaseResponse.getBody().asString());
+                extentLogger.info(couchbaseResponse.getBody().asString());
                 extentLogger.info("Milliseconds:  " + couchbaseResponse.getTimeIn(TimeUnit.MILLISECONDS));
 
             } catch (Throwable e) {
