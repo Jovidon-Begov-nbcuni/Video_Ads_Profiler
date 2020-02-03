@@ -109,7 +109,7 @@ public class VapPostMethods extends TestBase {
     }
 
 
-    @Test(dependsOnMethods = {"Purchase_Subscription_type", "Create_new_Profile_With_Post_and_Validate"})
+    @Test(enabled = false,dependsOnMethods = {"Purchase_Subscription_type", "Create_new_Profile_With_Post_and_Validate"})
     public static void Cancel_Subsription_using_Post() throws Exception {
         extentLogger = report.createTest("Canceling subscription");
         vapResponse = returnVapResponse();
@@ -129,7 +129,7 @@ public class VapPostMethods extends TestBase {
                     "\t\t\"publish_time\": \"" + localDateTime + "\"\n" +
                     "\t},\n" +
                     "\t\"subscription\": \"projects/nbcu-sdp-prod-003/subscriptions/us-payment-manager-cancel-sub-success-secured-ad-profiler-subscription\"\n" +
-                    "}").post().then().log().body();
+                    "}").post().then().statusCode(200).log().body();
 
 
             extentLogger.info(vap_env);

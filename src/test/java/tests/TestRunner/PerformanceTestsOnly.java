@@ -11,7 +11,7 @@ import static tests.Utilities.JsonManipulation.*;
 public class PerformanceTestsOnly {
 
     public static List<Object> list = new ArrayList<>();
-    public static int count = 10;
+    public static int count = 1000;
 
     public static void main(String[] args) throws Exception {
 
@@ -22,7 +22,7 @@ public class PerformanceTestsOnly {
     }
 
     public static void Profile_Create_Base64() throws Exception {
-        String csv = "/Users/jovidonbegov/Desktop/untitled folder/Profile_CreateBase64.csv";
+        String csv = "/Users/jovidonbegov/Desktop/Performance Tests/Profile_CreateBase64.csv";
         CSVWriter writer = new CSVWriter(new FileWriter(csv));
 
         String[] array = new String[1];
@@ -40,7 +40,7 @@ public class PerformanceTestsOnly {
     }
 
     public static void Purchase_Success_Base64() throws Exception {
-        String csv = "/Users/jovidonbegov/Desktop/untitled folder/Purchase_SuccessBase64.csv";
+        String csv = "/Users/jovidonbegov/Desktop/Performance Tests/Purchase_SuccessBase64.csv";
         CSVWriter writer = new CSVWriter(new FileWriter(csv));
 
         String[] array = new String[1];
@@ -55,7 +55,7 @@ public class PerformanceTestsOnly {
         writer.close();
     }
     public static void Cancel_Subscription_Base64() throws Exception{
-        String csv = "/Users/jovidonbegov/Desktop/untitled folder/Cancel_SubscriptionBase64.csv";
+        String csv = "/Users/jovidonbegov/Desktop/Performance Tests/Cancel_SubscriptionBase64.csv";
         CSVWriter writer = new CSVWriter(new FileWriter(csv));
 
         String[] array = new String[1];
